@@ -12,17 +12,17 @@ enum SendPropType {
 	Prop_Max
 };
 
-funcenum SendProxyCallback
+typeset SendProxyCallback
 {
-	Action:public(entity, const String:PropName[], &iValue, element), //Prop_Int
-	Action:public(entity, const String:PropName[], &Float:flValue, element), //Prop_Float
-	Action:public(entity, const String:PropName[], String:modifiedValue[4096], element), //Prop_String
-	Action:public(entity, const String:PropName[], Float:vecValues[3], element), //Prop_Vector
+	function Action(int entity, const char[] PropName, int &iValue, int element); //Prop_Int
+	function Action(int entity, const char[] PropName, float &flValue, int element); //Prop_Float
+	function Action(int entity, const char[] PropName, char modifiedValue[4096], int element); //Prop_String
+	function Action(int entity, const char[] PropName, float vecValues[3], int element); //Prop_Vector
 };
 
-funcenum PropChangedCallback
+typeset PropChangedCallback
 {
-	public(entity, const String:PropName[], const String:oldValue[], const String:newValue[]),
+	function void(int entity, const char[] PropName, const char[] oldValue, const char[] newValue);
 };
 
 //Returns true upon success, false upon failure
